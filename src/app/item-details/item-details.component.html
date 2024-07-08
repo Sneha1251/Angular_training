@@ -1,0 +1,15 @@
+<h1>Details are :</h1>
+<div *ngIf="item">
+    <p><strong>Id: </strong>{{item.id}}</p>
+    <p><strong>Name: </strong> {{ item.name }}</p>
+    <p><strong>Email: </strong> {{ item.email }}</p>
+  </div>
+  
+  <div *ngIf="!item && itemId !== 0">
+    <p>Click on Data</p>
+  </div>
+  
+  <div *ngIf="itemId === 0">
+    <p>No item selected</p>
+  </div>
+  
