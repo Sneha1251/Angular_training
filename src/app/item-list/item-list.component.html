@@ -1,0 +1,20 @@
+<h1>List of Items</h1>
+<ul>
+    <li *ngFor="let item of items">
+      {{ item.name }}
+      <button (click)="selectItem(item.id)" >view</button>
+    </li>
+    
+</ul>
+
+
+<div class="pagination">
+  <button (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+  <span>     Page {{ currentPage }}    </span>
+  <button (click)="nextPage()">Next</button>
+</div>
+
+<app-item-details [itemId]="selectedItemId"></app-item-details>
+  
+
+
