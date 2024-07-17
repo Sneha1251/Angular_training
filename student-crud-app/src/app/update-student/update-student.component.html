@@ -1,0 +1,35 @@
+<div class="modal" tabindex="-1" role="dialog" [ngClass]="{'show': isModalOpen}">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Update Student</h5>
+          <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="studentForm">
+            <div class="form-group">
+              <label for="studentName">Student Name</label>
+              <input type="text" id="studentName" class="form-control" formControlName="name">
+            </div>
+            <div class="form-group">
+              <label for="studentEmail">Student Email</label>
+              <input type="email" id="studentEmail" class="form-control" formControlName="email">
+            </div>
+            <div class="form-group">
+              <label for="studentBranch">Student Branch</label>
+              <select id="studentBranch" class="form-control" formControlName="branch">
+                <option *ngFor="let branch of branches" [value]="branch">{{ branch }}</option>
+              </select>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" (click)="updateStudent()">Update</button>
+          <button type="button" class="btn btn-danger" (click)="closeModal()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

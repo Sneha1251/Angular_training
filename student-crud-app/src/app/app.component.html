@@ -1,0 +1,36 @@
+<button class="btn btn-success mb-2" (click)="openCreateModal()">Create Student</button>
+<input type="text" class="form-control mb-2" placeholder="Search students..." [formControl]="searchTermControl">
+<app-create-student-modal
+  *ngIf="isCreateModalOpen"
+  (create)="createStudent($event)"
+  (close)="closeCreateModal()"
+></app-create-student-modal>
+
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Student Name</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of filteredStudents">
+        <td>{{ student.name }}</td>
+        <td>
+          <button class="btn btn-primary mr-2" (click)="updateStudentModal.openModal(student)">Update</button>
+          <button class="btn btn-danger" (click)="deleteStudent(student)">Delete</button>
+          <button class="btn btn-info" (click)="viewStudentDetails(student)">View</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="selectedStudent">
+  <h2>Selected Student Details</h2>
+  <p><strong>Name:</strong> {{ selectedStudent.name }}</p>
+  <p><strong>Email:</strong> {{ selectedStudent.email }}</p>
+  <p><strong>Branch:</strong> {{ selectedStudent.branch }}</p>
+</div>
+
+<app-update-student #updateStudentModal></app-update-student>
