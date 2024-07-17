@@ -1,0 +1,29 @@
+<button class="btn btn-success mb-2" (click)="openCreateModal()">Create Student</button>
+<input type="text" class="form-control mb-2" placeholder="Search students..." [formControl]="searchTermControl">
+<app-create-student-modal
+  *ngIf="isCreateModalOpen"
+  (create)="createStudent($event)"
+  (close)="closeCreateModal()"
+></app-create-student-modal>
+
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Student Name</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of filteredStudents">
+        <td>{{ student.name }}</td>
+        <td>
+          <button class="btn btn-primary mr-2" (click)="updateStudentModal.openModal(student)">Update</button>
+          <button class="btn btn-danger" (click)="deleteStudent(student)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<app-update-student #updateStudentModal></app-update-student>
