@@ -26,6 +26,7 @@ export class AppComponent {
 
   searchTermControl = new FormControl('');
   isCreateModalOpen = false;
+  selectedStudent: any = null;
 
   get searchTerm(): string {
     return this.searchTermControl.value!;
@@ -63,5 +64,12 @@ export class AppComponent {
 
   onSearchChange(value: string): void {
     this.searchTermControl.setValue(value);
+  }
+
+  viewStudentDetails(student: any): void {
+    this.selectedStudent = student;
+    // Close any open modals or do additional logic if needed
+    this.closeCreateModal(); // Close create modal if open
+    this.updateStudentModal.closeModal(); // Close update modal if open
   }
 }

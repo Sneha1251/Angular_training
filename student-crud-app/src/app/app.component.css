@@ -45,6 +45,10 @@
   background-color: #dc3545;
   border-color: #dc3545;
 }
+.btn-info{
+  background-color: #646464;
+  border-color: #646464;
+}
 
 .btn-danger:hover {
   background-color: #c82333;

@@ -20,10 +20,17 @@
         <td>
           <button class="btn btn-primary mr-2" (click)="updateStudentModal.openModal(student)">Update</button>
           <button class="btn btn-danger" (click)="deleteStudent(student)">Delete</button>
+          <button class="btn btn-info" (click)="viewStudentDetails(student)">View</button>
         </td>
       </tr>
     </tbody>
   </table>
+</div>
+<div *ngIf="selectedStudent">
+  <h2>Selected Student Details</h2>
+  <p><strong>Name:</strong> {{ selectedStudent.name }}</p>
+  <p><strong>Email:</strong> {{ selectedStudent.email }}</p>
+  <p><strong>Branch:</strong> {{ selectedStudent.branch }}</p>
 </div>
 
 <app-update-student #updateStudentModal></app-update-student>
